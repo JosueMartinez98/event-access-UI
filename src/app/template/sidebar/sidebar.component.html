@@ -1,3 +1,5 @@
-<p>
-  sidebar works!
-</p>
+<p-button type="text" (click)="sidebar = true" icon="pi pi-plus" label="Show"></p-button>
+<p-sidebar [(visible)]="sidebar" [baseZIndex]="10000">
+  <h3>Left Sidebar</h3>
+</p-sidebar>
+

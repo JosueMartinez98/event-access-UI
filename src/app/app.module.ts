@@ -9,6 +9,9 @@ import { TemplateComponent } from './template/template.component';
 import { HeaderComponent } from './template/header/header.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { FooterComponent } from './template/footer/footer.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {SidebarModule} from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,11 @@ import { FooterComponent } from './template/footer/footer.component';
   imports: [
     HomeModule,
     BrowserModule,
+    ButtonModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-
-    ]),
+    RouterModule.forRoot([]),
+    InputTextModule,
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
