@@ -1,17 +1,21 @@
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TemplateComponent } from './template/template.component';
-import { HeaderComponent } from './template/header/header.component';
-import { SidebarComponent } from './template/sidebar/sidebar.component';
-import { FooterComponent } from './template/footer/footer.component';
-import {InputTextModule} from 'primeng/inputtext';
-import {SidebarModule} from 'primeng/sidebar';
+import { AppRoutingModule } from './app-routing.module';
 import { ButtonModule } from 'primeng/button';
+import { FooterComponent } from './template/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './template/header/header.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { MenubarModule } from 'primeng/menubar';
+import { SharedModule } from 'primeng/api';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,16 @@ import { ButtonModule } from 'primeng/button';
     FooterComponent
   ],
   imports: [
-    HomeModule,
+    RouterModule.forRoot([]),
+    AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
     ButtonModule,
-    AppRoutingModule,
-    RouterModule.forRoot([]),
+    FormsModule,
+    HomeModule,
     InputTextModule,
+    MenubarModule,
+    SharedModule,
     SidebarModule,
   ],
   providers: [],
