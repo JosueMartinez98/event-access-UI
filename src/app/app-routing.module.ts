@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TemplateComponent } from './template/template.component';
 
 const routes: Routes = [
   {
@@ -10,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: TemplateComponent
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
   },
   {
     path: '**',
-    loadChildren: () => import('./common/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
 
   }
 ];

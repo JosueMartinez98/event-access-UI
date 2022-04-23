@@ -1,44 +1,49 @@
+// Principal Modules
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+// Modules
 import { AppRoutingModule } from './app-routing.module';
+import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
-import { FooterComponent } from './template/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './template/header/header.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { MegaMenuModule } from 'primeng/megamenu';
 import { MenubarModule } from 'primeng/menubar';
 import { SharedModule } from 'primeng/api';
-import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
-import { TemplateComponent } from './template/template.component';
+
+// Components
+import { AppComponent } from './app.component';
+
+// Services
+import { ResizeService } from './services/resize.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplateComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent
   ],
   imports: [
     RouterModule.forRoot([]),
     AppRoutingModule,
+    AvatarModule,
     BrowserAnimationsModule,
     BrowserModule,
     ButtonModule,
     FormsModule,
     HomeModule,
     InputTextModule,
+    MegaMenuModule,
     MenubarModule,
     SharedModule,
     SidebarModule,
   ],
-  providers: [],
+  providers: [
+    ResizeService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

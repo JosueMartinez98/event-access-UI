@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { ResizeService } from 'src/app/services/resize.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,16 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent implements OnInit {
   items: MenuItem[] = [];
   value1: string = 'que tal'
-  constructor() {}
+  responsiveClass: string = 'isLaptop';
+
+
+  constructor(
+    private _resizeService: ResizeService,
+    private _sidebarService: SidebarService,
+  ) {}
 
   ngOnInit() {
+    this.onResize()
     this.items = [
       {
         label: 'File',
@@ -135,5 +144,11 @@ export class HeaderComponent implements OnInit {
         icon: 'pi pi-fw pi-power-off',
       },
     ];
+  }
+
+  @HostListener('window:resize', [] )
+  private onResize() {
+    this.responsiveClass = this._resizeService.getBreackpoint(window.innerWidth)
+    console.log(this.responsiveClass);
   }
 }
